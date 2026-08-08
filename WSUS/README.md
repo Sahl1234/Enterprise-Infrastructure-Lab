@@ -28,7 +28,9 @@ During the installation of the WSUS service, I noticed that the IIS service was 
 
 Selected C:\bank.lab\WSUS as the content directory.
 
-<img width="829" height="577" alt="The Container" src="https://github.com/user-attachments/assets/a1fe446c-d396-4374-8ecf-8eb84d379c49" />
+
+<img width="829" height="577" alt="Updates Container" src="https://github.com/user-attachments/assets/1d97732e-4cd3-4d16-bc29-bbc96815f77a" />
+
 
 
 During the installation of the WSUS role, I noticed that IIS was also installed as part of the required components.
@@ -46,7 +48,7 @@ So, WSUS manages the updates, while IIS provides the web-based communication and
 
 During the post-installation configuration, an error occurred.
 
-image
+![images/Post Deployemnt error](images/Post Deployemnt error.jpg)
 
 I used this command via PowerShell to complete the setup, and it worked.
 
