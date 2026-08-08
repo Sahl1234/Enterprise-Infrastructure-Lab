@@ -31,20 +31,17 @@ Selected C:\bank.lab\WSUS as the content directory.
 <img width="829" height="577" alt="The Container" src="https://github.com/user-attachments/assets/a1fe446c-d396-4374-8ecf-8eb84d379c49" />
 
 
-During the installation of the WSUS service, I noticed that the IIS service was also installed.
+During the installation of the WSUS role, I noticed that IIS was also installed as part of the required components.
 
-## WSUS and IIS
-
-Windows Server Update Services (WSUS) depends on Internet Information Services (IIS) to communicate with client computers.
-
-When the WSUS role is installed, IIS is automatically installed (if it is not already available) because WSUS uses web services over HTTP/HTTPS to deliver updates and receive status reports from clients.
+WSUS relies on IIS to communicate with client computers and deliver updates over the network.
 
 In simple terms:
 
-- **WSUS** manages update synchronization, approvals, and deployment.
-- **IIS** hosts the web services that allow client computers to download updates and report their installation status.
+* **WSUS** is responsible for managing updates, synchronization, approvals, and reporting.
+* **IIS** provides the web services used by client computers to communicate with the WSUS server and download updates.
 
-Without IIS, WSUS cannot communicate with clients or distribute updates.
+So, WSUS manages the updates, while IIS provides the web-based communication and delivery mechanism between the WSUS server and its clients.
+
 
 
 During the post-installation configuration, an error occurred.
