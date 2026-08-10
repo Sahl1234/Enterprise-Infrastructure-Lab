@@ -48,11 +48,13 @@ So, WSUS manages the updates, while IIS provides the web-based communication and
 
 During the post-installation configuration, an error occurred.
 
-![Post Deployemnt error](images/post deploymnt error.jpg)
-![Post Deployment error](images/post_deploymnt_error.jpg)
+
+![Post Deployment error](images/post_deploymnt_error.JPG)
+
 
 I used this command via PowerShell to complete the setup, and it worked.
 
-image
+
+[PowerShell command](images/PowerShell.JPG)
 
 
