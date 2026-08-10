@@ -145,11 +145,43 @@ Configure Automatic Updates: Set to Enabled using option 3 - Auto download and n
 No auto-restart with logged on users for scheduled automatic updates installations: Set to Enabled to prevent automatic reboots while users are logged in.
 
 
+### Verifying Group Policy and Sending Update Reports from Windows 7
+
+On the Windows 7 client machine, I ran the following commands in `cmd` to apply the Group Policy and send update request reports to the WSUS server:
+
+```cmd
+gpupdate /force
+wuauclt /detectnow
+wuauclt /reportnow
+
+![clint command](images/clint_command.jpg)
+
+
+### Reviewing Client Status on WSUS Console
+
+After running the commands on the Windows 7 client, I checked the WSUS main console:
+
+- **Computers needing updates:** Shows `1` (the Windows 7 client was successfully recognized).
+- **Updates needed by computers:** Shows `55` (WSUS detected 55 required updates for this client).
+
+![WSUS Dashboard Status](images/Update_Services.JPG)
+
 
 ### Approving Updates
 
-After configuring the Group Policy, I returned to the available updates section in the WSUS console and selected a few updates for testing.
+After verifying that the Windows 7 client reported to the WSUS server, I returned to the **Updates** section in the WSUS console.
 
-I approved the selected updates for the **All Computers** group, as this lab environment currently contains a single client computer.
+I selected two updates required for the client and approved them for the **All Computers** group to test the deployment process.
 
-![Approving WSUS Updates](images/Approe_Updates.JPG)
+![Approving WSUS Updates](images/Approve_Updates.JPG)
+
+
+
+### Installing Approved Updates on Windows 7
+
+Finally, I checked for updates on the Windows 7 client. The system successfully detected the approved updates from the WSUS server and started the download process.
+
+![Windows 7 Downloading Updates](images/Windows_7_gitting_pdates.JPG)
+
+
+
