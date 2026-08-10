@@ -114,16 +114,13 @@ The synchronized updates were then displayed in the console.
 
 ### Configuring Group Policy
 
-Before approving the updates, I configured a Group Policy and linked it to the OU containing the client computer.
+Before approving the updates, I created a Group Policy Object (GPO) and linked it to the 
+Organizational Unit (OU) named "workstations".
+
+![WSUS Client Plolicy](images/WSUS_Client_Plolicy.JPG)
+
 
 This allows the client computer to use the WSUS server as its update source and communicate with the WSUS server.
-
-
-### Configuring Group Policy
-
-To configure the client computer to use the WSUS server, I created a Group Policy Object (GPO) and linked it to the Organizational Unit (OU) named "workstations".
-
-
 
 
 #### 🗂️ Group Policy Path
@@ -138,7 +135,9 @@ Computer Configuration
                 ├── ⚙️ Configure Automatic Updates
                 └── ⚙️ No auto-restart with logged on users for scheduled automatic updates installations
 
-⚙️ Configured Policy Details
+
+###⚙️Configured Policy Details
+
 Specify intranet Microsoft update service location: Set to Enabled with the server URL http://DC01:8530.
 
 Configure Automatic Updates: Set to Enabled using option 3 - Auto download and notify for install.
