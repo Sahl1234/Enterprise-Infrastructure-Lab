@@ -55,6 +55,13 @@ During the post-installation configuration, an error occurred.
 I used this command via PowerShell to complete the setup, and it worked.
 
 
-[PowerShell command](images/PowerShell.JPG)
+![PowerShell command](images/PowerShell.JPG)
 
 
+### Initial Configuration
+
+After completing the post-installation configuration, I opened the WSUS management console and started the Initial Configuration Wizard.
+
+![WSUS Initial Configuration Wizard](upstream-servers.JPG)
+
+At this stage, WSUS connects to Microsoft Update to retrieve information about available updates, products, classifications, and languages.
