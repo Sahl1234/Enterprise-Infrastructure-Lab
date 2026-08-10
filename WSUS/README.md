@@ -134,14 +134,22 @@ Computer Configuration
                 ├── ⚙️ Specify intranet Microsoft update service location
                 ├── ⚙️ Configure Automatic Updates
                 └── ⚙️ No auto-restart with logged on users for scheduled automatic updates installations
-
+```
 
 ###⚙️Configured Policy Details
 
-Specify intranet Microsoft update service location: Set to Enabled with the server URL http://DC01:8530.
+Specify intranet Microsoft update service location: Set to Enabled with the server URL `http://DC01:8530`.
 
 Configure Automatic Updates: Set to Enabled using option 3 - Auto download and notify for install.
 
 No auto-restart with logged on users for scheduled automatic updates installations: Set to Enabled to prevent automatic reboots while users are logged in.
 
 
+
+### Approving Updates
+
+After configuring the Group Policy, I returned to the available updates section in the WSUS console and selected a few updates for testing.
+
+I approved the selected updates for the **All Computers** group, as this lab environment currently contains a single client computer.
+
+![Approving WSUS Updates](images/Approe_Updates.JPG)
