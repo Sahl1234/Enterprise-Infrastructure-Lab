@@ -62,6 +62,6 @@ I used this command via PowerShell to complete the setup, and it worked.
 
 After completing the post-installation configuration, I opened the WSUS management console and started the Initial Configuration Wizard.
 
-![WSUS Initial Configuration Wizard](upstream_servers.JPG)
+![WSUS Initial Configuration Wizard](imaages/upstream_servers.JPG)
 
 At this stage, WSUS connects to Microsoft Update to retrieve information about available updates, products, classifications, and languages.
