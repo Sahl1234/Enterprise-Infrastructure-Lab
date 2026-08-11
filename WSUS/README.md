@@ -153,6 +153,7 @@ On the Windows 7 client machine, I ran the following commands in `cmd` to apply 
 gpupdate /force
 wuauclt /detectnow
 wuauclt /reportnow
+```
 
 ![clint command](images/clint_command.jpg)
 
@@ -182,6 +183,67 @@ I selected two updates required for the client and approved them for the **All C
 Finally, I checked for updates on the Windows 7 client. The system successfully detected the approved updates from the WSUS server and started the download process.
 
 ![Windows 7 Downloading Updates](images/Windows_7_gitting_pdates.JPG)
+
+
+
+
+## Challenges
+
+### WSUS Synchronization and Performance Issues
+
+During the WSUS synchronization process, I encountered several issues that caused the synchronization to fail or stop before completion.
+
+The synchronization failed multiple times, and I had to repeat it several times during the lab. In some attempts, the process stopped before completion, while in other cases the WSUS console showed connection errors.
+
+![WSUS Connection Error](images/ResetServer.JPG)
+
+I also encountered an error with the WSUS MMC snap-in, which caused the snap-in to unload.
+
+![WSUS MMC Error](images/MMC.JPG)
+
+I also noticed that the Windows Server virtual machine was running very slowly during the synchronization process and sometimes became unresponsive.
+
+I could not determine that all of these issues were caused by a single problem, so I made several adjustments and tested the synchronization again after each one.
+
+### Troubleshooting Steps
+
+#### 1. Configuring the IIS WsusPool
+
+I first checked the IIS application pool used by WSUS and adjusted some of its settings.
+
+I configured the following settings:
+
+- **Private Memory Limit:** Set to `0` (Unlimited). This removes the configured limit on the amount of private memory that the `WsusPool` application pool can use.
+
+- **Queue Length:** Increased from `1000` to `25000`. This allows the application pool to handle a larger number of pending requests before rejecting them.
+
+These were some of the first adjustments I made while troubleshooting the WSUS synchronization issues.
+
+#### 2. Increasing Virtual Machine Memory
+
+The Windows Server virtual machine was initially configured with 2 GB of RAM.
+
+Because the server was running slowly and sometimes became unresponsive, I increased the allocated memory to 3 GB.
+
+#### 3. Stopping Local Update File Storage
+
+I also noticed that storing update files locally was consuming a significant amount of disk space.
+
+To reduce storage usage in the lab environment, I changed the WSUS update file settings to:
+
+**Do not store update files locally; computers install from Microsoft Update.**
+
+![WSUS Update File Settings](images/Updates%20Files.JPG)
+
+#### 4. Freeing Disk Space
+
+After noticing that a significant amount of disk space had been consumed, I freed up the available storage before continuing with the synchronization process.
+
+These changes helped reduce the resource pressure on the lab environment.
+
+### Result
+
+After making these adjustments and repeating the synchronization process several times, the WSUS environment became more stable and the synchronization process completed more smoothly.
 
 
 
