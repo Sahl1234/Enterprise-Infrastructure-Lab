@@ -22,9 +22,6 @@ Instead of each client computer downloading updates directly from Microsoft, WSU
 
 Installed the WSUS role using Server Manager.
 
-During the installation of the WSUS service, I noticed that the IIS service was also installed.
-
-
 
 Selected C:\bank.lab\WSUS as the content directory.
 
@@ -136,7 +133,7 @@ Computer Configuration
                 └── ⚙️ No auto-restart with logged on users for scheduled automatic updates installations
 ```
 
-###⚙️Configured Policy Details
+### ⚙️ Configured Policy Details
 
 Specify intranet Microsoft update service location: Set to Enabled with the server URL `http://DC01:8530`.
 
@@ -183,6 +180,15 @@ I selected two updates required for the client and approved them for the **All C
 Finally, I checked for updates on the Windows 7 client. The system successfully detected the approved updates from the WSUS server and started the download process.
 
 ![Windows 7 Downloading Updates](images/Windows_7_gitting_pdates.JPG)
+
+
+### Verifying Update Installation
+
+After restarting the Windows 7 client, I checked Windows Update again to verify the result.
+
+Windows Update showed that the system was up to date.
+
+![Windows 7 is Up to Date](images/windows-is-up-to-date.JPG)
 
 
 
@@ -245,5 +251,17 @@ These changes helped reduce the resource pressure on the lab environment.
 
 After making these adjustments and repeating the synchronization process several times, the WSUS environment became more stable and the synchronization process completed more smoothly.
 
+
+
+
+## Lessons Learned
+
+WSUS was the longest and most challenging Windows Server role I have dealt with so far.
+
+I faced many problems during the lab, including lag, freezing, and synchronization failures. I think many of these problems happened because I was running Windows Server with only 2 GB of RAM, which put a lot of pressure on the server, especially during the WSUS synchronization process.
+
+After increasing the RAM and making some other adjustments, the lab became more stable and the synchronization process became smoother. However, it was still not as smooth as I expected. At least, I was able to complete the tasks I needed to complete, even though I was working with only one client computer and a limited number of updates.
+
+From this experience, I learned that if I want to have a good experience working with Windows Server in my labs, I should give it enough resources. For my future labs, I will use at least 4 GB of RAM for Windows Server, especially when working with roles that require more resources, such as WSUS.
 
 
