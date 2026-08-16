@@ -136,7 +136,7 @@ Folder Target:
 ---
 ```
 
-![[new_folder_HR_zoom.png]]
+![](new_folder_HR_zoom.png)
 
 
 ### Testing the DFS Namespace
@@ -147,7 +147,7 @@ After completing the configuration, I moved to the Windows 7 client and accessed
 
 The folder was successfully accessible from the Windows 7 client.
 
-![[HR_User_Folder.PNG]]
+![](HR_User_Folder.PNG)
 
 This confirmed that the DFS namespace was working correctly and that the client could access the configured folder through the DFS path.
 
