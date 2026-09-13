@@ -28,11 +28,11 @@ The main objectives were:
 
 The first step was to install the Windows Deployment Services role on the Windows Server.
 
-![WDS Installation](WDS_Instaltion.PNG)
+![WDS Installation](images/WDS_Instaltion.PNG)
 
 After the installation was completed, I verified that the installation was successful.
 
-![Installation Succeeded](Installation_succeeded.PNG)
+![Installation Succeeded](images/Installation_succeeded.PNG)
 
 ---
 
@@ -50,7 +50,7 @@ Then, I selected the Windows 7 ISO file.
 
 After mounting the ISO, I opened **This PC** and verified that the Windows 7 installation media appeared as a CD/DVD drive.
 
-![Windows 7 ISO Mounted](wds_iso_mounted.png)
+![Windows 7 ISO Mounted](images/wds_iso_mounted.png)
 
 ---
 
@@ -60,7 +60,7 @@ After preparing the Windows 7 installation media, I moved to the WDS console to 
 
 Initially, the WDS console showed a yellow warning icon next to the server because the WDS service had not been configured yet.
 
-![Configure WDS Server](Configure_Server.PNG)
+![Configure WDS Server](images/Configure_Server.PNG)
 
 I started the WDS configuration wizard.
 
@@ -104,7 +104,7 @@ After configuring DHCP options, I reached the **PXE Response Settings** page.
 
 There were three options available. I selected the third option to allow WDS to respond to PXE requests from client computers.
 
-![PXE Response Configuration](wds_pxe_response_config.png)
+![PXE Response Configuration](images/wds_pxe_response_config.png)
 
 This allows a new client connected to the network to send a PXE request and communicate with the WDS server.
 
@@ -114,7 +114,7 @@ This allows a new client connected to the network to send a PXE request and comm
 
 After completing the WDS configuration, the WDS console changed and several folders became available.
 
-![WDS After Configuration](after_configr_Server.PNG)
+![WDS After Configuration](images/after_configr_Server.PNG)
 
 The two main folders I worked with at this stage were:
 
@@ -137,7 +137,7 @@ I opened the mounted Windows 7 ISO, navigated to the `Sources` folder, and selec
 
 I then followed the WDS wizard to add the image to the **Boot Images** folder.
 
-![WDS Boot Image](WDS_boot_image.PNG)
+![WDS Boot Image](images/WDS_boot_image.PNG)
 
 During the wizard, I provided a suitable name for the boot image and continued.
 
@@ -161,7 +161,7 @@ In my case, the ISO contained only one edition:
 
 **Windows 7 Professional**
 
-![Windows 7 Install Image](wds_select_install_images.png)
+![Windows 7 Install Image](images/wds_select_install_images.png)
 
 I selected Windows 7 Professional and continued with the wizard.
 
@@ -195,7 +195,7 @@ Then, I selected the same internal network used by the domain:
 
 **BANK-LAN**
 
-![Client Network Configuration](vbox_client_network_boot.png)
+![Client Network Configuration](images/vbox_client_network_boot.png)
 
 This allows the PXE client to communicate with the WDS server and obtain its network configuration through DHCP.
 
@@ -209,7 +209,7 @@ I configured the virtual machine to boot from the network first.
 
 This allows the client to send a PXE request when it starts and look for a WDS server on the network.
 
-![Network Boot Configuration](Internal_Network.PNG)
+![Network Boot Configuration](images/Internal_Network.PNG)
 
 At this point, the WDS server, DHCP, PXE client, and Windows images were ready for the deployment process.
 
@@ -224,11 +224,11 @@ After configuring the WDS server, adding the Boot Image and Install Image, and p
 However, the PXE boot process did not work as expected.
 
 
-![PXE Boot F12](wds_pxe_boot_f12.png)
+![PXE Boot F12](images/wds_pxe_boot_f12.png)
 
 I also encountered additional startup issues during the network boot process.
 
-![Startup Issues](Start_issus.PNG)
+![Startup Issues](images/Start_issus.PNG)
 
 
 I tried several troubleshooting steps to solve the problem. I changed different WDS settings, modified the boot configuration, and tested different options related to the virtual machine and network boot process.
@@ -247,13 +247,13 @@ This time, the PXE boot process worked successfully without the problems I exper
 
 The client was able to communicate with the WDS server, load the Boot Image, and continue to the Windows installation process.
 
-![Windows 7 Installation](Instaling.PNG)
+![Windows 7 Installation](images/Instaling.PNG)
 
-![Windows 7 Installation](Instaling2.PNG)
+![Windows 7 Installation](images/Instaling2.PNG)
 
 Finally, the Windows 7 installation started successfully through WDS.
 
-![WDS Credentials](WDS_Credentials.PNG)
+![WDS Credentials](images/WDS_Credentials.PNG)
 
 
 
