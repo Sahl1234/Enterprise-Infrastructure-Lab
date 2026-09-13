@@ -253,7 +253,7 @@ The client was able to communicate with the WDS server, load the Boot Image, and
 
 Finally, the Windows 7 installation started successfully through WDS.
 
-![WDS Credentials](images/WDS_Credentials.PNG)
+![WDS Credentials](images/Vmware WDS/WDS_Credentials.PNG)
 
 
 
