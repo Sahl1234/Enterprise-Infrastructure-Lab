@@ -54,7 +54,7 @@ Select-Object InterfaceAlias, IPAddress, PrefixLength
 ```
 
 
-![Domain Controller Pre-Check](Pre-Check.PNG)
+![Domain Controller Pre-Check](images/Pre-Check.PNG)
 
 The domain was successfully identified as `bank.lab`.
 
