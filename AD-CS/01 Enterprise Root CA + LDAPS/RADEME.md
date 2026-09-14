@@ -78,13 +78,13 @@ I continued through the wizard until reaching the **Server Roles** section, wher
 
 `Active Directory Certificate Services`
 
-![Install AD CS](Install_AD_CS.PNG)
+![Install AD CS](images/Install_AD_CS.PNG)
 
 I then continued to the **Role Services** section and selected:
 
 `Certification Authority`
 
-![Certification Authority Role Service](Role_Service.PNG)
+![Certification Authority Role Service](images/Role_Service.PNG)
 
 I selected the Certification Authority role service because this is the component required for the lab to implement the Certification Authority and issue digital certificates.
 
@@ -98,7 +98,7 @@ After the AD CS role installation was completed, Server Manager displayed a noti
 
 `Post-deployment Configuration`
 
-![Post-deployment Configuration](Post-deployment_Configuration.PNG)
+![Post-deployment Configuration](images/Post-deployment_Configuration.PNG)
 
 I started the AD CS configuration wizard to configure the Certification Authority.
 
@@ -110,7 +110,7 @@ For the **Setup Type**, I selected:
 
 `Enterprise CA`
 
-![Enterprise CA](Setup_Type.PNG)
+![Enterprise CA](images/Setup_Type.PNG)
 
 I selected an Enterprise CA because this lab already uses an Active Directory domain.
 
@@ -126,7 +126,7 @@ For the **CA Type**, I selected:
 
 `Root CA`
 
-![Root CA](CA_Type.PNG)
+![Root CA](images/CA_Type.PNG)
 
 This is a new PKI environment, so I created a Root CA directly instead of using an existing external or subordinate CA.
 
@@ -155,7 +155,7 @@ For the cryptographic configuration, I selected:
 - **Hash Algorithm:** SHA-256
     
 
-![CA Cryptography](Cryptography.PNG)
+![CA Cryptography](images/Cryptography.PNG)
 
 I selected the Microsoft Software Key Storage Provider for the CA key storage and used RSA 2048 as the key length.
 
@@ -179,7 +179,7 @@ I selected a longer validity period because this is the Root CA and it acts as t
 
 The Root CA certificate was therefore configured to remain valid from 2026 to 2036.
 
-![[Configuration_Succeeded.PNG]]
+![[images/Configuration_Succeeded.PNG]]
 
 
 ---
@@ -221,7 +221,7 @@ Server "BANK-ROOT-CA" ICertRequest2 interface is alive
 CertUtil: -ping command completed successfully.
 ```
 
-![AD CS Post-Deployment Verification](AD_CS_Post-Deployment_Verification.PNG)
+![AD CS Post-Deployment Verification](images/AD_CS_Post-Deployment_Verification.PNG)
 
 These checks confirmed that:
 
@@ -255,7 +255,7 @@ When opening the Root CA certificate details, the certificate was issued by:
 
 This confirms that the certificate is a self-signed Root CA certificate.
 
-![BANK-ROOT-CA Properties](BANK-ROOT-CA_Properites.PNG)
+![BANK-ROOT-CA Properties](images/BANK-ROOT-CA_Properites.PNG)
 
 ---
 
@@ -289,7 +289,7 @@ and clicked:
 
 `Enroll`
 
-![Request Certificate](Requset_Certificate.PNG)
+![Request Certificate](images/Requset_Certificate.PNG)
 
 This allowed `DC01` to request and enroll for a certificate from the Enterprise CA using the Active Directory enrollment policy.
 
@@ -306,7 +306,7 @@ Get-ChildItem Cert:\LocalMachine\My |
 Select-Object Subject, Issuer, NotBefore, NotAfter, Thumbprint, HasPrivateKey
 ```
 
-![All Certificates](PowerShell_all_certificate.PNG)
+![All Certificates](images/PowerShell_all_certificate.PNG)
 
 The certificate store contained three certificates.
 
@@ -334,7 +334,7 @@ Get-ChildItem Cert:\LocalMachine\My\BE56BE6D368D8EADAC64B48F86B7B12C99FCCA97 |
 Format-List *
 ```
 
-![Certificate Details](PowerShell_certificate_details.PNG)
+![Certificate Details](images/PowerShell_certificate_details.PNG)
 
 The certificate contained the properties required for the LDAPS configuration.
 
@@ -382,7 +382,7 @@ $SslStream.Dispose()
 $TcpClient.Dispose()
 ```
 
-![LDAPS TLS Handshake Verification](ldaps-tls-handshake-verification.png)
+![LDAPS TLS Handshake Verification](images/ldaps-tls-handshake-verification.png)
 
 The TLS connection returned the following certificate thumbprint:
 
@@ -417,7 +417,7 @@ $ldap.RefreshCache()
 $ldap.Properties["defaultNamingContext"].Value
 ```
 
-![LDAPS Verification](LDAPS_Verification.PNG)
+![LDAPS Verification](images/LDAPS_Verification.PNG)
 
 The query successfully returned:
 
